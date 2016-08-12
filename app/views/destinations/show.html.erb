@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @destination.name %>
+</p>
+
+<p>
+  <strong>Airportcode:</strong>
+  <%= @destination.airportCode %>
+</p>
+
+<p>
+  <strong>Photourl:</strong>
+  <%= @destination.photoUrl %>
+</p>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

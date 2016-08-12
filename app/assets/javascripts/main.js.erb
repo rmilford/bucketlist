@@ -1,0 +1,48 @@
+$(document).ready(function(){
+  //calendar datepicker function so input box drops down
+
+// http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/{market}/{currency}/{locale}/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}?apiKey={apiKey}
+//var url = 'https://congress.api.sunlightfoundation.com/legislators?state=';
+//var url = 'http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/US/USD/en-US/IAD/LAX/2016-10-12/2016-10-20'
+//var apiKey = '?apikey=' + 'ge661847267924032645722837293965';
+var urlString = 'http://partners.api.skyscanner.net/apiservices/xd/autosuggest/v1.0/US/USD/en-US?query=cleveland&apiKey=ge661847267924032645722837293965'
+
+//var urlString = 'http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/US/USD/en-US/JFK/LAX/2016-10-10/2016-10-20?apiKey=ge661847267924032645722837293965'
+// 'http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/GB/GBP/en-GB/UK/anywhere/anytime/anytime?apiKey=prtl6749387986743898559646983194'
+$("button").click(function(){
+  // var search = $('.destination').val();
+  // var search = "NJ"
+  //var origin = $('#origin').val()
+//  console.log(state)
+  $.ajax({
+    url: urlString,
+    type: "GET",
+    dataType: "jsonp"
+  }).success(function(response){
+//    console.log(response);
+/*    members = '';
+     for (var i=0;i<response.results.length;i++) {
+       members = members + '<li><div id="member" href="/candidates/new">' + response.results[i].first_name + ' ' + response.results[i].last_name +'</div></li>';
+     }
+
+     $('#output').html(members);
+     $('#candidate_first_name').val('test');
+     $("div").click(function(){
+       i = $('div').index($(this));
+       $('#candidate_first_name').val(response.results[i].first_name);
+       $('#candidate_last_name').val(response.results[i].last_name);
+       $('#candidate_jurisdiction').val(response.results[i].state+' District '+response.results[i].district);
+       $('#candidate_party').val(response.results[i].party);
+       $('#candidate_incumbent').prop('checked', true);
+       $('#candidate_photo_url').val('https://theunitedstates.io/images/congress/225x275/' +response.results[i].bioguide_id+'.jpg');
+       $('#candidate_bioguide_id').val(response.results[i].bioguide_id);
+       $('#my_img').show();
+       $('#my_img').attr('src', 'https://theunitedstates.io/images/congress/225x275/' +response.results[i].bioguide_id+'.jpg');
+
+     });
+*/
+  }).fail(function(response){
+    console.log("sucks for you", response);
+  });
+});
+});
